@@ -13,7 +13,7 @@
 
 void checkIsUpdateInstallable(BIBuildInformation *biBuildInformation) {
   BOOL result = [biBuildInformation isUpdateInstallable:nil];
-  NSLog(@"isUpdateInstallable: %@\n", result ? @"✔️" : @"❌");
+  NSLog(@"isUpdateInstallable: %@\n", result ? @"🎉" : @"☠️");
 }
 
 int main(int argc, char **argv) {
