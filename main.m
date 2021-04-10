@@ -2,7 +2,7 @@
 
 #include <dlfcn.h>
 
-@interface BIBuildInformation: NSObject
+@interface BIBuildInformation : NSObject
 @end
 
 @implementation BIBuildInformation
@@ -21,7 +21,9 @@ int main(int argc, char **argv) {
 
   checkIsUpdateInstallable(biBuildInformation);
 
-  if (argc < 2) { return 0; }
+  if (argc < 2) {
+    return 0;
+  }
 
   void *handle = dlopen(argv[1], RTLD_LAZY);
   if (handle == NULL) {
