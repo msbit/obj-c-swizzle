@@ -9,5 +9,7 @@ all: main libswizzle.dylib
 	./main libswizzle.dylib
 	DYLD_INSERT_LIBRARIES=libswizzle.dylib ./main libswizzle.dylib
 
+main: main.o BIBuildInformation.o
+
 clean:
-	rm -f libswizzle.dylib main
+	rm -f libswizzle.dylib main *.o

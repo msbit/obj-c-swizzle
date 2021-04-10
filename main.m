@@ -2,14 +2,7 @@
 
 #include <dlfcn.h>
 
-@interface BIBuildInformation : NSObject
-@end
-
-@implementation BIBuildInformation
-- (BOOL)isUpdateInstallable:(id)_ {
-  return NO;
-}
-@end
+#import "BIBuildInformation.h"
 
 void checkIsUpdateInstallable(BIBuildInformation *biBuildInformation) {
   BOOL result = [biBuildInformation isUpdateInstallable:nil];
