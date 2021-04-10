@@ -1,7 +1,7 @@
-CFLAGS=-fmodules
+LDFLAGS=-fobjc-link-runtime
 
 lib%.dylib: %.m
-	$(CC) -dynamiclib $(CFLAGS) $(<) -o $(@)
+	$(CC) -dynamiclib $(CFLAGS) $(LDFLAGS) $(<) -o $(@)
 
 all: main libswizzle.dylib
 	./main

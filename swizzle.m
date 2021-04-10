@@ -1,5 +1,5 @@
-@import Foundation;
-@import ObjectiveC.runtime;
+#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 static Method method;
 static IMP original;
