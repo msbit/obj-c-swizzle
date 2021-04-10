@@ -2,17 +2,17 @@
 
 #include <dlfcn.h>
 
-#import "BIBuildInformation.h"
+#import "TargetType.h"
 
-void checkIsUpdateInstallable(BIBuildInformation *biBuildInformation) {
-  BOOL result = [biBuildInformation isUpdateInstallable:nil];
-  printf("isUpdateInstallable: %s\n", result ? "🎉" : "☠️");
+void checkTargetMethod(TargetType *targetInstance) {
+  BOOL result = [targetInstance targetMethod:nil];
+  printf("targetMethod: %s\n", result ? "🎉" : "☠️");
 }
 
 int main(int argc, char **argv) {
-  BIBuildInformation *biBuildInformation = [[BIBuildInformation alloc] init];
+  TargetType *targetInstance = [[TargetType alloc] init];
 
-  checkIsUpdateInstallable(biBuildInformation);
+  checkTargetMethod(targetInstance);
 
   if (argc < 2) {
     return 0;
@@ -24,14 +24,14 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  checkIsUpdateInstallable(biBuildInformation);
+  checkTargetMethod(targetInstance);
 
   if (dlclose(handle) != 0) {
     printf("%s\n", dlerror());
     return -1;
   }
 
-  checkIsUpdateInstallable(biBuildInformation);
+  checkTargetMethod(targetInstance);
 
   return 0;
 }

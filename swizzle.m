@@ -5,12 +5,12 @@ static Method method;
 static IMP original;
 
 __attribute__((constructor)) static void init(void) {
-  Class class = objc_getClass("BIBuildInformation");
+  Class class = objc_getClass("TargetType");
   if (!class) {
     return;
   }
 
-  SEL selector = sel_registerName("isUpdateInstallable:");
+  SEL selector = sel_registerName("targetMethod:");
   method = class_getInstanceMethod(class, selector);
   if (!method) {
     return;
