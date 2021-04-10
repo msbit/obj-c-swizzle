@@ -6,13 +6,13 @@ static IMP original;
 
 __attribute__((constructor)) static void init(void) {
   Class class = objc_getClass("TargetType");
-  if (!class) {
+  if (class == nil) {
     return;
   }
 
   SEL selector = sel_registerName("targetMethod:");
   method = class_getInstanceMethod(class, selector);
-  if (!method) {
+  if (method == nil) {
     return;
   }
 
@@ -23,7 +23,7 @@ __attribute__((constructor)) static void init(void) {
 }
 
 __attribute__((destructor)) static void fini(void) {
-  if (!method || !original) {
+  if (method == nil || original == nil) {
     return;
   }
 
