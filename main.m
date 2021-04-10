@@ -13,7 +13,7 @@
 
 void checkIsUpdateInstallable(BIBuildInformation *biBuildInformation) {
   BOOL result = [biBuildInformation isUpdateInstallable:nil];
-  NSLog(@"isUpdateInstallable: %@\n", result ? @"🎉" : @"☠️");
+  printf("isUpdateInstallable: %s\n", result ? "🎉" : "☠️");
 }
 
 int main(int argc, char **argv) {
@@ -27,15 +27,15 @@ int main(int argc, char **argv) {
 
   void *handle = dlopen(argv[1], RTLD_LAZY);
   if (handle == NULL) {
-    NSLog(@"%s\n", dlerror());
-    return 1;
+    printf("%s\n", dlerror());
+    return -1;
   }
 
   checkIsUpdateInstallable(biBuildInformation);
 
   if (dlclose(handle) != 0) {
-    NSLog(@"%s\n", dlerror());
-    return 1;
+    printf("%s\n", dlerror());
+    return -1;
   }
 
   checkIsUpdateInstallable(biBuildInformation);
